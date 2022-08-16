@@ -7,16 +7,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= flash.each do |key, message|%>
-      <div class="alert alert-<%= key == 'notice'? 'success' : 'danger' %> alert-dissmissible fade show text-center" role="alert">
-        <%= message %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <%= render 'shared/nav' %>
+    <div class="continer">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'shared/error' %>
+          
+          <%= yield %>
+        </div>
       </div>
-    <% end %>
-
-    <%= yield %>
+    </div>
   </body>
 </html>
