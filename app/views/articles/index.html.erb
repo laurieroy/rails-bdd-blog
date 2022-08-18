@@ -1,1 +1,14 @@
-<%= link_to "New Article", new_article_path %>
+<h1 class="text-center mt-4">Listing all articles</h1>
+
+<%= link_to "New Article", new_article_path, class: "btn btn-default btn-lg", id: "new-article-button" %>
+
+<% @articles.each do |article| %>
+	<div class="card">
+		<div class="article-title">
+			<%= link_to article.title, @article %>
+		</div>
+		<div class="article-body">
+			<%= article.body %>
+		</div>
+	</div>
+<% end %>
